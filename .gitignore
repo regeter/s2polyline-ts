@@ -1,0 +1,27 @@
+# Node Modules
+node_modules/
+package-lock.json
+
+# Build Output
+dist/
+
+# macOS
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor/IDE-specific files (add as needed)
+.idea/         # IntelliJ IDEA
+.vscode/       # VS Code
+*.swp          # Vim swap files
+*.swo          # Vim swap files
+
+# TypeScript-specific (optional, but good practice)
+*.js.map       # Source map files (if you don't need them for debugging in production)
+*.d.ts          # TypeScript declaration files (if distributed separately, or not at all)
+
+# OS-Generated Files
+Thumbs.db     # Windows thumbnail cache
