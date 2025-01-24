@@ -5,15 +5,16 @@ package-lock.json
 # Build Output
 dist/
 
-# macOS
-.DS_Store
+# OS-Generated Files
+.DS_Store     # MacOS
+Thumbs.db     # Windows thumbnail cache
 
 # Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Editor/IDE-specific files (add as needed)
+# Editor/IDE specificd
 .idea/         # IntelliJ IDEA
 .vscode/       # VS Code
 *.swp          # Vim swap files
@@ -22,6 +23,3 @@ yarn-error.log*
 # TypeScript-specific (optional, but good practice)
 *.js.map       # Source map files (if you don't need them for debugging in production)
 *.d.ts          # TypeScript declaration files (if distributed separately, or not at all)
-
-# OS-Generated Files
-Thumbs.db     # Windows thumbnail cache
