@@ -16,6 +16,10 @@ This library specifically focuses on encoding and decoding S2 polylines, which a
 npm install s2polyline-ts
 ```
 
+## Demo
+
+A demo of the is published to GitHub Pages: https://regeter.github.io/s2polyline-ts/
+
 ## Usage
 
 ```typescript
