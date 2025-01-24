@@ -10,6 +10,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "prepare": "npm run build",
+    "deploy": "gh-pages -d dist",
     "start": "webpack serve --mode development"
   },
   "repository": {
