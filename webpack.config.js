@@ -18,6 +18,9 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: process.env.NODE_ENV === 'production' 
+      ? '/s2polyline-ts/'
+      : '/'
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -26,6 +29,7 @@ module.exports = {
   ],
   devServer: {
     static: './dist',
-    hot: true
+    hot: true,
+    historyApiFallback: true
   }
 };
