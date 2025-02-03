@@ -7,7 +7,6 @@ import { S2Point } from './lib/s2point';
 import { S2Polyline } from './lib/s2polyline';
 
 export function encode(latlngs: S2LatLng[]): string {
-  console.log('Encoding polyline with', latlngs.length, 'points');
   const vertices: S2Point[] = latlngs.map(ll => ll.toPoint());
   const polyline = new S2Polyline(vertices);
   const bytes = polyline.encodeCompact();
@@ -17,7 +16,6 @@ export function encode(latlngs: S2LatLng[]): string {
 }
 
 export function decode(encoded: string): S2LatLng[] {
-  console.log('Decoding polyline:', encoded);
   const base64 = encoded.replace(/-/g, '+').replace(/_/g, '/');
   const bytes = Uint8Array.from(atob(base64), c => c.charCodeAt(0));
   const polyline = S2Polyline.decode(bytes);
