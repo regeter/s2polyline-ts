@@ -17,6 +17,7 @@ module.exports = {
   },
   output: {
     filename: 'bundle.js',
+    clean: true,
     path: path.resolve(__dirname, 'dist'),
     publicPath: process.env.NODE_ENV === 'production' 
       ? '/s2polyline-ts/'
