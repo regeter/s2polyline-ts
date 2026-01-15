@@ -1,6 +1,7 @@
 import { S2LatLng } from '../lib/s2latlng';
 import { S2Point } from '../lib/s2point';
 import { S2Polyline } from '../lib/s2polyline';
+import { parseInput } from './utils';
 
 function base64Encode(bytes: Uint8Array) {
   let byteString = '';
@@ -39,11 +40,12 @@ function decodePath(base64: string) {
   return latlngs;
 }
 
-const button = document.getElementById('decode');
+const decodeButton = document.getElementById('decode');
 const s2Input = document.getElementById('s2polyline') as HTMLInputElement;
-const resultPre = document.getElementById('result') as HTMLPreElement;
-if (button) {
-  button.onclick = () => {
+const decodeResultPre = document.getElementById('result') as HTMLPreElement;
+
+if (decodeButton) {
+  decodeButton.onclick = () => {
     let latLngs: S2LatLng[];
     try {
       latLngs = decodePath(s2Input.value);
@@ -59,6 +61,28 @@ if (button) {
       const latLng = latLngs[i];
       result += `${i}: ${latLng.latDegrees()}, ${latLng.lngDegrees()}\n`;
     }
-    resultPre.textContent = result;
+    decodeResultPre.textContent = result;
+  };
+}
+
+const encodeButton = document.getElementById('encode');
+const encoderInput = document.getElementById('encoderInput') as HTMLTextAreaElement;
+const encoderResultPre = document.getElementById('encoderResult') as HTMLPreElement;
+
+if (encodeButton) {
+  encodeButton.onclick = () => {
+    try {
+      const latLngs = parseInput(encoderInput.value);
+      if (latLngs.length === 0) {
+        encoderResultPre.textContent = 'No coordinates found.';
+        return;
+      }
+      const encoded = encodePath(latLngs);
+      encoderResultPre.textContent = encoded;
+    } catch (e: any) {
+      alert(e.message);
+      console.error(e);
+      encoderResultPre.textContent = `Error: ${e.message}`;
+    }
   };
 }
